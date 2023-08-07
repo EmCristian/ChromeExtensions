@@ -1,6 +1,9 @@
 const minutesButtons = Array.from(document.getElementsByClassName('constantMinutesButton'));
 const saveButton = document.getElementsByClassName('saveButton')[0];
+const stopButton = document.getElementsByClassName('stopButton')[0];
 const minutesValueElement = document.getElementsByClassName('minutesInput')[0];
+
+
 console.log(saveButton);
 
 minutesButtons.forEach(mb =>  {
@@ -17,4 +20,8 @@ saveButton.addEventListener('click', () => {
     {
         periodInMinutes: parseInt(minutesValueElement.value)
     });
+  });
+
+stopButton.addEventListener('click', () => {
+    chrome.alarms.clearAll();
   });
